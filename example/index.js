@@ -1,3 +1,4 @@
+const Ezol = require("../src/ezol.js");
 // example
 const ezol = new Ezol();
 const div = Ezol.div;

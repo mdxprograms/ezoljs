@@ -1,15 +1,18 @@
 {
   "name": "ezoljs",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A functional templating system inspired by elm",
   "repository": "https://github.com/mdxprograms/ezoljs",
-  "main": "ezol.js",
+  "main": "./src/ezol.js",
   "scripts": {
+    "start": "bankai start example",
+    "build": "bankai build ./src/ezol.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Josh Waller <mdx.programs@gmail.com> (https://github.com/mdxprograms)",
   "license": "MIT",
-  "devDependencies" : {
+  "devDependencies": {
+    "bankai": "^9.0.0-rc12",
     "prettier": "^1.8.2"
   }
 }

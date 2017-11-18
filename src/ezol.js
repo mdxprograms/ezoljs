@@ -1,25 +1,16 @@
 /*
  * Ezol example:
- * var div = Ezol.div;
+ * const ezol = require('ezoljs');
+ *
+ * const { div } = ezol;
  * div({ className: "jello" }, "text here", [children]);
  */
 
 // element types
-var elementTypes = ["a", "div", "li", "nav", "ul"];
-// @TODO: Add this when switching to module export
-// var elementTypes = require("./elements.json");
-
-// initial collection for diffing
-var collection = {
-  div: [],
-  nav: [],
-  ul: [],
-  li: [],
-  a: []
-};
+const elementTypes = require("./elements.json");
 
 // validations
-var validate = {
+const validate = {
   attrs: function(attrs) {
     if (typeof attrs !== "object") {
       throw Error(
@@ -30,7 +21,7 @@ var validate = {
 };
 
 // actions to generate properties on elements
-var actions = {
+const actions = {
   // addAttrs :: element -> attrs -> element[attributes]
   addAttrs: function(element, attrs) {
     return Object.keys(attrs).map(function(attr) {
@@ -40,8 +31,8 @@ var actions = {
 };
 
 // createElement :: type -> attrs -> text -> children -> newElement
-var createElement = function(type, attrs, text, children) {
-  var newElement = document.createElement(type.toLowerCase());
+const createElement = function(type, attrs, text, children) {
+  const newElement = document.createElement(type.toLowerCase());
 
   newElement.appendChild(document.createTextNode(text));
 
@@ -55,24 +46,33 @@ var createElement = function(type, attrs, text, children) {
 };
 
 var Ezol = function() {
+  const self = this;
+  self.collection = {};
   // generate elementTypes
   elementTypes.map(function(type) {
     // elementType :: attrs -> text -> children -> newElement
-    Ezol[type] = function(attrs, text, children) {
+    Ezol[type.element] = function(attrs, text, children) {
       validate.attrs(attrs);
 
-      var newEl = createElement(type, attrs, text, children);
-      this.collection[type].push(newEl);
+      const newEl = createElement(type.element, attrs, text, children);
+
+      if (self.collection[type.element]) {
+        self.collection[type.element].push(newEl);
+      } else {
+        self.collection[type.element] = [newEl];
+      }
 
       return newEl;
     };
   });
 
   return {
-    collection: collection,
+    collection: self.collection,
     // attach :: element -> host -> host.appendChild(element)
     attach: function(element, host) {
       document.querySelector(host).appendChild(element);
     }
   };
 };
+
+module.exports = Ezol;
