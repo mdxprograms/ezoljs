@@ -1,6 +1,6 @@
 {
   "name": "ezoljs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A functional templating system inspired by elm",
   "repository": "https://github.com/mdxprograms/ezoljs",
   "main": "ezol.js",
