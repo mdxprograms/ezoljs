@@ -1,0 +1,14 @@
+{
+  "name": "ezoljs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ezol.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Waller <mdx.programs@gmail.com> (http://joshwaller.net/)",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^1.8.2"
+  }
+}
