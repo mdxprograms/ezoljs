@@ -15,18 +15,23 @@ Similarly in Ezol, each element is dynamically created to be used as a first cla
 
 _This is WIP at the moment_.
 
-@NOTE: Currently only the example elements are available.
-I will be adding a dictionary to dynamically create the remaining html elements.
-
 ### Example
 
 ```javascript
+const Ezol = require("ezoljs");
 const ezol = new Ezol();
+
 const div = Ezol.div;
 const nav = Ezol.nav;
 const ul = Ezol.ul;
 const li = Ezol.li;
 const a = Ezol.a;
+
+or
+
+const {
+  div, nav, ul, li, a
+} = ezol;
 
 const links = [
   {
@@ -66,6 +71,6 @@ ezol.attach(appView(), "body");
 #### Todos
 
 - [ ] migrate code to es6 format
-- [ ] add elements dictionary to dynamically create all html elements
-- [ ] add exports
+- [x] add elements dictionary to dynamically create all html elements
+- [x] add exports
 - [ ] formalize tests
