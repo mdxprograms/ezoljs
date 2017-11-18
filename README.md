@@ -1,5 +1,7 @@
 # Ezol.js
 
+[ezoljs](https://www.npmjs.com/package/ezoljs)
+
 ### Installation
 
 ```bash
