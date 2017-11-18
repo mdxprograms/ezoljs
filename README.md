@@ -1,5 +1,11 @@
 # Ezol.js
 
+### Installation
+
+```bash
+npm i --save ezoljs
+```
+
 ### Description
 
 This library is highly inspired by elm's html + view implementation.

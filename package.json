@@ -1,6 +1,6 @@
 {
   "name": "ezoljs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A functional templating system inspired by elm",
   "repository": "https://github.com/mdxprograms/ezoljs",
   "main": "ezol.js",
@@ -9,7 +9,7 @@
   },
   "author": "Josh Waller <mdx.programs@gmail.com> (https://github.com/mdxprograms)",
   "license": "MIT",
-  "devDependencies": {
+  "devDependencies" : {
     "prettier": "^1.8.2"
   }
 }
