@@ -2,25 +2,10 @@
 
 ### Description
 
-#### Todos
-
-- [ ] migrate code to es6 format
-- [ ] add exports
-- [ ] formalize tests
-
 This library is highly inspired by elm's html + view implementation.
-_This is WIP at the moment_.
-
-```elm
-view model =
-  div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (toString model) ]
-    , button [ onClick Increment ] [ text "+" ]
-    ]
-```
-
 Similarly in Ezol, each element is dynamically created to be used as a first class function.
+
+_This is WIP at the moment_.
 
 ### Example
 
@@ -66,3 +51,9 @@ const appView = () => div({ id: "app" }, "", [navView()]);
 
 ezol.attach(appView(), "body");
 ```
+
+#### Todos
+
+- [ ] migrate code to es6 format
+- [ ] add exports
+- [ ] formalize tests
