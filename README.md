@@ -21,14 +21,6 @@ _This is WIP at the moment_.
 const Ezol = require("ezoljs");
 const ezol = new Ezol();
 
-const div = Ezol.div;
-const nav = Ezol.nav;
-const ul = Ezol.ul;
-const li = Ezol.li;
-const a = Ezol.a;
-
-or
-
 const {
   div, nav, ul, li, a
 } = ezol;
