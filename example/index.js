@@ -1,11 +1,4 @@
-const Ezol = require("../src/ezol.js");
-// example
-const ezol = new Ezol();
-const div = Ezol.div;
-const nav = Ezol.nav;
-const ul = Ezol.ul;
-const li = Ezol.li;
-const a = Ezol.a;
+import { a, nav, ul, li, div } from "../dist/ezol";
 
 const links = [
   {
@@ -39,4 +32,4 @@ const linksView = links =>
 // basic view example
 const appView = () => div({ id: "app" }, "", [navView()]);
 
-ezol.attach(appView(), "body");
+Ezol.attach(appView(), "body");
