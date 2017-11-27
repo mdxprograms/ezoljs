@@ -1,6 +1,6 @@
 # Ezol.js
 
-[ezoljs](https://www.npmjs.com/package/ezoljs)
+[![NPM](https://nodei.co/npm/ezoljs.png)](https://npmjs.org/package/ezoljs)
 
 ### Installation
 
