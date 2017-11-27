@@ -28,11 +28,7 @@ const Ezol = require("ezoljs");
 
 // example
 const ezol = new Ezol();
-const div = Ezol.div;
-const nav = Ezol.nav;
-const ul = Ezol.ul;
-const li = Ezol.li;
-const a = Ezol.a;
+const { div, nav, ul, li, a } = Ezol;
 
 // inline styles accepted
 const navStyle = `
