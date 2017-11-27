@@ -13,6 +13,12 @@ npm i --save ezoljs
 This library is highly inspired by elm's html + view implementation.
 Similarly in Ezol, each element is dynamically created to be used as a first class function.
 
+Each element takes 3 arguments:
+
+```javascript
+element({ ...attrs }, "text", [childElements])
+```
+
 _This is WIP at the moment_.
 
 ### Example
