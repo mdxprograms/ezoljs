@@ -1,0 +1,21 @@
+{
+  "name": "ezoljs",
+  "version": "2.0.2",
+  "description": "A functional templating system inspired by elm",
+  "repository": "https://github.com/mdxprograms/ezoljs",
+  "main": "./bundle.js",
+  "scripts": {
+    "start": "webpack-dev-server index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Waller <mdx.programs@gmail.com> (https://github.com/mdxprograms)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "prettier": "^1.8.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
