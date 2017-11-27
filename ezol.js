@@ -5,6 +5,7 @@
  * const { div } = ezol;
  * div({ className: "jello" }, "text here", [children]);
  */
+require("babel-polyfill");
 
 // element types
 const elementTypes = require("./elements.json");

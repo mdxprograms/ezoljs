@@ -1,4 +1,4 @@
-const Ezol = require("../src/ezol.js");
+const Ezol = require("../ezol.js");
 
 // example
 const ezol = new Ezol();
