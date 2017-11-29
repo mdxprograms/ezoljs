@@ -19,8 +19,6 @@ Each element takes 3 arguments:
 element({ ...attrs }, "text", [childElements])
 ```
 
-_This is WIP at the moment_.
-
 ### Example
 
 ```javascript
