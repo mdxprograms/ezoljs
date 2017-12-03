@@ -5,17 +5,16 @@
  * const { div } = ezol;
  * div({ className: "jello" }, "text here", [children]);
  */
-require('babel-polyfill');
 
 // element types
-const elementTypes = require('./elements.json');
+import elementTypes from './elements.json';
 
 // validations
 const validate = {
-  attrs: function (attrs) {
-    if (typeof attrs !== 'object') {
+  attrs: test => {
+    if (typeof test !== 'object') {
       throw Error(
-        "Attributes must be in object form: { className: 'my-class' }"
+        'Attributes must be in object form: { className: "my-class" }'
       );
     }
   }
@@ -24,44 +23,44 @@ const validate = {
 // actions to generate properties on elements
 const actions = {
   // addAttrs :: element -> attrs -> element[attributes]
-  addAttrs: function (element, attrs) {
-    return Object.keys(attrs).map(function (attr) {
-      return (element[attr] = attrs[attr]);
+  addAttrs: (element, attrs) => {
+    return Object.keys(attrs).map(attr => {
+      const attrsToAdd = (element[attr] = attrs[attr]);
+
+      return attrsToAdd;
     });
   }
 };
 
 // createElement :: type -> attrs -> text -> children -> newElement
-const createElement = function (type, attrs, text, children) {
+const createElement = (type, attrs, text, children) => {
   const newElement = document.createElement(type.toLowerCase());
 
   newElement.appendChild(document.createTextNode(text));
 
-  children.map(function (child) {
+  children.map(child => {
     newElement.appendChild(child);
   });
 
-  newElement[actions.addAttrs(newElement, attrs)];
-
-  return newElement;
+  return newElement[actions.addAttrs(newElement, attrs)];
 };
 
-var Ezol = function () {
-  const self = this;
-
-  self.collection = {};
+export default () => {
+  let collection = {};
+  let elements = {};
   // generate elementTypes
-  elementTypes.map(function (type) {
+
+  elementTypes.map(type => {
     // elementType :: attrs -> text -> children -> newElement
-    Ezol[type.element] = function (attrs, text, children) {
+    elements[type.element] = (attrs, text, children) => {
       validate.attrs(attrs);
 
       const newEl = createElement(type.element, attrs, text, children);
 
-      if (self.collection[type.element]) {
-        self.collection[type.element].push(newEl);
+      if (collection[type.element]) {
+        collection[type.element].push(newEl);
       } else {
-        self.collection[type.element] = [newEl];
+        collection[type.element] = [newEl];
       }
 
       return newEl;
@@ -69,12 +68,11 @@ var Ezol = function () {
   });
 
   return {
-    collection: self.collection,
+    collection,
     // attach :: element -> host -> host.appendChild(element)
-    attach: function (element, host) {
+    elements,
+    attach: (element, host) => {
       document.querySelector(host).appendChild(element);
     }
   };
 };
-
-module.exports = Ezol;
